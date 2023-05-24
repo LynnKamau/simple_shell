@@ -4,10 +4,13 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <errno.h>
+
+extern char **environ;
 
 /**
  * main - entry point
- * Descriptiom: Creates a simple shell
+ * Description: Creates a simple shell
  *
  * Return: Error if not found
  */
@@ -30,7 +33,7 @@ int main(void)
 
 	if (childPid == 0)
 	{
-		if (execve(command, NULL, environ) == -1)
+		if (execve(command, (char *const []){command, NULL}, environ) == -1)
 		{
 			perror("Error");
 			exit(EXIT_FAILURE);
