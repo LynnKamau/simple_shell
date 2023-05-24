@@ -9,6 +9,6 @@
 
 int main(void)
 {
-	printf("Lynn Kamau");
+	printf("Lynn Kamau\n");
+	return (0);
 }
-return (0);
